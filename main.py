@@ -146,7 +146,7 @@ class Face_recognition_System:
         btn1.place(x=500,y=380,width=220,height=220)
 
 
-        btn1_1=Button(bg_img,text="Photos",cursor="hand2",font=("items new roman",15,"bold"),bg="dark blue",fg="white")
+        btn1_1=Button(bg_img,text="Photos",cursor="hand2",font=("items new roman",15,"bold"),bg="dark blue",fg="white",command=self.open_img)
         btn1_1.place(x=500,y=580,width=220,height=40)
 
 

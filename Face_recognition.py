@@ -55,7 +55,8 @@ class Face_Recognition:
                 result = my_cursor.fetchone()
 
                 if result:
-                    print(f"Attendance already marked for student {student_id} today.")
+                    # print(f"Attendance already marked for student {student_id} today.")
+                    pass
                 else:
                     # Insert attendance record into MySQL database
                     my_cursor.execute("""
@@ -93,12 +94,12 @@ class Face_Recognition:
                     query = "SELECT Name, Roll, Dep FROM student WHERE StudentID=%s"
                     my_cursor.execute(query, (id,))
                     result = my_cursor.fetchone()
-                    name = result[0] if result else "Unknown"
-                    roll = result[1] if result else "Unknown"
-                    dep = result[2] if result else "Unknown"
+                    name = result[0] if result else ""
+                    roll = result[1] if result else ""
+                    dep = result[2] if result else ""
 
                     # Mark attendance
-                    if confidence > 77:
+                    if confidence > 80:
                         cv2.putText(img, f"StudentId: {id}", (x, y - 100), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 0, 0), 3)
                         cv2.putText(img, f"Name: {name}", (x, y - 70), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 0, 0), 3)
                         cv2.putText(img, f"Roll: {roll}", (x, y - 40), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 0, 0), 3)

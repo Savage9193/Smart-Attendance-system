@@ -354,7 +354,7 @@ class Student:
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)    
            
     #######Fetch Data####
-    def fetch_data(self):
+    def fetch_data(self):   
         conn=mysql.connector.connect(host="localhost",username="root",password="Ziya@123",database="shahvez")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student")
